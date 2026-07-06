@@ -1,0 +1,7 @@
+id=vortex_exchange
+name=VORTEX-exchange
+version=4.0.2
+versionCode=48
+author=Element__ / VORTEX-Dinamic
+description=VORTEX-exchange v4.0.2 para VortexAGNI API v2.2. Perfiles Daily/Gaming/Sleep. Fix: BOM, modulo duplicado, P1 nodes.
+webui=true

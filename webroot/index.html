@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f2348" />
+  <title>VORTEX-exchange</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-theme="darkblue">
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow" data-i18n="kernelControlCenter">Centro de control del kernel</p>
+        <h1 id="pageTitle">VORTEX-exchange</h1>
+        <p class="subtitle" data-i18n="topSubtitle">API v2.2 • ABI 2.2 • KernelSU</p>
+      </div>
+      <button class="round-action" id="refreshTop" aria-label="Actualizar estado">↻</button>
+    </header>
+
+    <main class="page active" id="home">
+      <section class="hero-card glass-card">
+        <div class="accent-line"></div>
+        <div class="hero-copy">
+          <p class="card-kicker">VORTEX EXCHANGE</p>
+          <h2 data-i18n="kernelControlCenter">Centro de control del kernel</h2>
+          <p class="muted" data-i18n="heroDesc">Kernel detectado por Vortex API v2.2 / ABI 2.2</p>
+          <span class="badge green api-ready" id="heroApiBadge">API v2.2 Ready</span>
+        </div>
+      </section>
+
+      <section class="metric-grid">
+        <article class="metric-card large glass-card">
+          <div class="metric-icon up">↑</div>
+          <div>
+            <span class="metric-value" id="apiMetricValue">API v2.2</span>
+            <p class="metric-label">VORTEX API</p>
+          </div>
+          <span class="chevron">›</span>
+        </article>
+        <article class="metric-card glass-card online-card">
+          <span class="status-dot"></span>
+          <div>
+            <span class="metric-value small" data-i18n="online">Online</span>
+            <p class="metric-label">KernelSU</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="quick-list glass-card">
+        <div class="section-head">
+          <div>
+            <p class="card-kicker" data-i18n="summary">Resumen</p>
+            <h3 data-i18n="systemStatus">Estado del sistema</h3>
+          </div>
+          <span class="badge cyan" id="apiBadgeSmall">API v2.2</span>
+        </div>
+        <div class="info-row"><span data-i18n="kernel">Kernel</span><strong id="kernelHome">Detectando…</strong></div>
+        <div class="info-row"><span>ABI</span><strong id="abiHome">2.1</strong></div>
+        <div class="info-row"><span data-i18n="apiState">Estado</span><strong id="apiStateHome">Detectando…</strong></div>
+        <div class="info-row"><span>Android</span><strong id="androidValue">16</strong></div>
+        <div class="info-row"><span>SDK</span><strong id="sdkValue">36</strong></div>
+        <div class="info-row"><span>ROM/PORT</span><strong id="romValue" data-i18n="notDetected">No detectada</strong></div>
+        <div class="info-row"><span data-i18n="device">Dispositivo</span><strong id="deviceValue">sweet/sweetin</strong></div>
+      </section>
+
+      <section class="mini-cards one-card">
+        <article class="mini-card glass-card gradient-blue current-profile-card">
+          <div class="profile-main">
+            <p data-i18n="currentProfile">Current Profile</p>
+            <strong id="currentProfileHome">Daily</strong>
+            <span id="currentProfileOption">Selected: Balanced</span>
+          </div>
+          <div class="sleep-anchor">
+            <p data-i18n="sleepModeShort">Sleep</p>
+            <strong id="sleepAnchorOption">Selected: Adaptive</strong>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <main class="page" id="profiles">
+      <section class="selector-card glass-card">
+        <div class="section-head">
+          <div>
+            <p class="card-kicker" data-i18n="profiles">Perfiles</p>
+            <h2 data-i18n="vortexModes">Modos VORTEX</h2>
+          </div>
+          <span class="badge green" data-i18n="safe">Seguro</span>
+        </div>
+        <p class="muted" data-i18n="profileDesc">Cambia Daily, Gaming y Sleep a tu gusto.</p>
+      </section>
+
+      <section class="mode-card glass-card">
+        <h3 data-i18n="dailyMode">Daily Mode</h3>
+        <p class="muted" data-i18n="dailyDesc">Uso diario. Prioriza estabilidad, temperatura y batería.</p>
+        <div class="button-grid">
+          <button class="mode-btn green" data-command="daily" data-mode="eco"><strong>Eco</strong><span data-i18n="ecoDesc">Más batería</span></button>
+          <button class="mode-btn green" data-command="daily" data-mode="balanced"><strong>Balanced</strong><span data-i18n="recommended">Recomendado</span></button>
+          <button class="mode-btn green" data-command="daily" data-mode="cool"><strong>Cool</strong><span data-i18n="cooler">Más fresco</span></button>
+          <button class="mode-btn green" data-command="daily" data-mode="smart"><strong>Smart</strong><span data-i18n="smartDesc">Adapta batería/temp</span></button>
+        </div>
+      </section>
+
+      <section class="mode-card glass-card">
+        <h3 data-i18n="gamingMode">Gaming Mode</h3>
+        <p class="muted" data-i18n="gamingDesc">Rendimiento seguro con control CPU y lectura de estado API v2.2.</p>
+        <div class="button-grid">
+          <button class="mode-btn pink" data-command="gaming" data-mode="cool"><strong>Cool</strong><span data-i18n="lowerTemp">Menos temperatura</span></button>
+          <button class="mode-btn pink" data-command="gaming" data-mode="balanced"><strong>Balanced</strong><span data-i18n="stable">Estable</span></button>
+          <button class="mode-btn pink" data-command="gaming" data-mode="response"><strong>Response</strong><span data-i18n="betterResponse">Mejor respuesta</span></button>
+          <button class="mode-btn pink" data-command="gaming" data-mode="performance"><strong>Performance</strong><span data-i18n="safeAggressive">Más agresivo seguro</span></button>
+        </div>
+      </section>
+
+      <section class="mode-card glass-card">
+        <h3 data-i18n="sleepMode">Sleep Mode</h3>
+        <p class="muted" data-i18n="sleepDesc">Para pantalla apagada. Adaptive es recomendado.</p>
+        <div class="button-grid">
+          <button class="mode-btn blue" data-command="sleep" data-mode="light"><strong>Light</strong><span data-i18n="fastNotifications">Notificaciones rápidas</span></button>
+          <button class="mode-btn blue" data-command="sleep" data-mode="plus"><strong>Plus</strong><span data-i18n="moreSaving">Más ahorro</span></button>
+          <button class="mode-btn blue" data-command="sleep" data-mode="deep"><strong>Deep</strong><span data-i18n="deeper">Más profundo</span></button>
+          <button class="mode-btn blue recommended" data-command="sleep" data-mode="adaptive"><strong>Adaptive</strong><span data-i18n="recommended">Recomendado</span></button>
+        </div>
+      </section>
+    </main>
+
+    <main class="page" id="tools">
+      <section class="message-card glass-card">
+        <div class="accent-line"></div>
+        <div>
+          <p class="card-kicker" data-i18n="toolsKicker">TOOLS</p>
+          <h2 data-i18n="diagnosticLog">Diagnóstico y Log</h2>
+          <p class="muted" data-i18n="diagnosticDesc">Herramientas de prueba y registro de acciones. No aplican cambios peligrosos.</p>
+        </div>
+      </section>
+
+      <section class="tool-grid">
+        <button class="tool-card glass-card" data-tool="refresh"><span class="tool-icon cyan">↻</span><strong data-i18n="refreshState">Refresh State</strong><small data-i18n="updateStatus">Actualizar estado</small></button>
+        <button class="tool-card glass-card" data-tool="selftest"><span class="tool-icon green">✓</span><strong data-i18n="selfTest">Self Test</strong><small data-i18n="apiRoutes">API y rutas</small></button>
+        <button class="tool-card glass-card" data-tool="report"><span class="tool-icon blue">⇩</span><strong data-i18n="exportReport">Export Report</strong><small data-i18n="saveReport">Guardar reporte</small></button>
+        <button class="tool-card glass-card" data-tool="reset"><span class="tool-icon pink">!</span><strong data-i18n="resetDefaults">Reset Defaults</strong><small data-i18n="restoreModes">Restaurar modos</small></button>
+      </section>
+
+      <section class="result-card glass-card">
+        <div class="section-head">
+          <div>
+            <p class="card-kicker" data-i18n="logKicker">LOG</p>
+            <h3 data-i18n="lastAction">Última acción</h3>
+          </div>
+          <div class="inline-actions">
+            <button class="small-btn" id="toggleResult" data-i18n="viewLog">Ver log</button>
+            <button class="small-btn" id="clearResult" data-i18n="clear">Limpiar</button>
+          </div>
+        </div>
+        <pre id="resultBox" data-i18n="readyText">Listo.</pre>
+      </section>
+    </main>
+
+    <main class="page" id="status">
+      <section class="status-header glass-card">
+        <p class="card-kicker" data-i18n="statusKicker">STATUS</p>
+        <h2 data-i18n="apiControlCenter">API Control Center</h2>
+        <p class="muted" data-i18n="statusDesc">Estado resumido del módulo y del kernel.</p>
+      </section>
+
+      <section class="status-list glass-card" id="statusList">
+        <div class="info-row"><span data-i18n="kernel">Kernel</span><strong id="kernelStatus">Detectando…</strong></div>
+        <div class="info-row"><span>API</span><strong id="apiStatus">API v2.2</strong></div>
+        <div class="info-row"><span>ABI</span><strong id="abiStatus">2.1</strong></div>
+        <div class="info-row"><span data-i18n="apiPath">API Path</span><strong id="apiPathStatus">/sys/kernel/vortex/v2</strong></div>
+        <div class="info-row"><span data-i18n="thermal">Thermal</span><strong id="thermalStatus">--</strong></div>
+        <div class="info-row"><span data-i18n="dailyModeShort">Daily</span><strong id="dailyStatus">Balanced</strong></div>
+        <div class="info-row"><span data-i18n="gamingModeShort">Gaming</span><strong id="gamingStatus">Balanced</strong></div>
+        <div class="info-row"><span data-i18n="sleepModeShort">Sleep</span><strong id="sleepStatus">Adaptive</strong></div>
+      </section>
+
+      <section class="details-card glass-card">
+        <div class="section-head">
+          <h3 data-i18n="technicalDetails">Detalles técnicos</h3>
+          <button class="small-btn" id="toggleDetails" data-i18n="viewDetails">Ver detalles</button>
+        </div>
+        <pre id="detailsBox" class="collapsed">PerfilBase=daily
+DailyMode=balanced
+GamingMode=balanced
+SleepMode=adaptive
+Kernel=Detectando...
+APIPath=/sys/kernel/vortex/v2
+APIState=ready</pre>
+      </section>
+    </main>
+
+    <main class="page" id="settings">
+      <section class="setting-card glass-card">
+        <h2 data-i18n="language">Idioma</h2>
+        <button class="select-pill" id="languageToggle">
+          <span id="currentLanguage">Español</span>
+          <span class="select-caret" aria-hidden="true"></span>
+        </button>
+        <div class="option-list collapsed" id="languageOptions">
+          <button class="option active" data-lang-select="es">Español</button>
+          <button class="option" data-lang-select="en">English</button>
+          <button class="option" data-lang-select="id">Indonesia</button>
+        </div>
+      </section>
+
+      <section class="setting-card glass-card">
+        <h2 data-i18n="theme">Tema</h2>
+        <button class="select-pill" id="themeToggle">
+          <span id="currentTheme">🌙 Dark Blue</span>
+          <span class="select-caret" aria-hidden="true"></span>
+        </button>
+        <div class="option-list theme-list collapsed" id="themeOptions">
+          <button class="option active" data-theme-select="darkblue">🌙 Dark Blue</button>
+          <button class="option" data-theme-select="darkpurple">🔮 Dark Purple</button>
+          <button class="option" data-theme-select="darkgreen">🌿 Dark Green</button>
+          <button class="option" data-theme-select="darkorange">🔥 Dark Orange</button>
+          <button class="option" data-theme-select="darkred">❤️ Dark Red</button>
+        </div>
+      </section>
+
+      <section class="about-card glass-card">
+        <p class="card-kicker" data-i18n="about">ABOUT</p>
+        <h2>VORTEX-exchange</h2>
+        <p class="muted" data-i18n="aboutDesc">VortexAGNI Edition · API v2.2</p>
+        <div class="info-row"><span data-i18n="kernel">Kernel</span><strong>VortexAGNI-1.4-APIv2.2</strong></div>
+        <div class="info-row"><span>ABI</span><strong>2.1</strong></div>
+        <div class="info-row"><span>WebUI</span><strong>NEON UI</strong></div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="bottom-nav" data-i18n-aria="mainNavigation" aria-label="Navegación principal">
+    <button class="nav-item active" data-page="home"><span>⌂</span><small data-i18n="home">Home</small></button>
+    <button class="nav-item" data-page="profiles"><span>☰</span><small data-i18n="profilesNav">Profiles</small></button>
+    <button class="nav-item" data-page="tools"><span>◆</span><small data-i18n="tools">Tools</small></button>
+    <button class="nav-item" data-page="status"><span>◉</span><small data-i18n="statusNav">Status</small></button>
+    <button class="nav-item" data-page="settings"><span>⚙</span><small data-i18n="settings">Settings</small></button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
